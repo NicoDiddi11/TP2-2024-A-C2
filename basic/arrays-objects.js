@@ -47,7 +47,6 @@ function getInventorsBefore1800(inventors) {
 
 console.log("\n----------- Ejercicio 2 --------------\n");
 
-// 2.- Convertir el apellido en mayusculas
 
 function MayusInventors(inventors) {
   const capitalizedLastNames = [];
@@ -139,19 +138,6 @@ sortByYearOfBirthAndPrint(inventors);
 
 console.log("\n----------- Ejercicio 7 --------------\n");
 
-function sortBylastName(inventors) {
-
-const inventorsAux = inventors.slice();
-
-  inventorsAux.sort((a, b) => a.last - b.last);
-  printInventors(inventorsAux);
-}
-
-sortBylastName(inventors);
-printInventors(inventors);
-
-
-/*
 function sortByLastNameAndPrint(inventors) {
   const sortedInventors = inventors.slice().sort((a, b) => a.last.localeCompare(b.last));
   printInventors(sortedInventors);
@@ -172,3 +158,35 @@ sortByLastNameAndPrint(inventors);
  * ]
  *
  */
+
+console.log("\n----------- Ejercicio 8 --------------\n");
+
+function arrayFormato(inventors) {
+  const formatoArray = [];
+  for (const inventor of inventors) {
+    const objeto = {
+      name: {
+        first: inventor.first,
+        last: inventor.last
+      },
+      year: inventor.year
+    };
+    formatoArray.push(objeto);
+  }
+  return formatoArray; // Devolver el nuevo arreglo al final de la función
+}
+
+
+function printInventorsOtroFormato(arrayFormato) {
+  console.log("[");
+  for (const inventor of arrayFormato) {
+    console.log(` {name: { first: '${inventor.name.first}', last: '${inventor.name.last}' },`);
+    console.log(`  year: ${inventor.year}`);
+      console.log(" }");
+    }
+    console.log("]");
+  }
+
+printInventorsOtroFormato(arrayFormato(inventors));
+
+
