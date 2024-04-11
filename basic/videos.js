@@ -22,7 +22,38 @@ const str = `<ul>
 </ul>`;
 
 // Parsear datos
-// Obtener el total de segundos de los videos de tipo Redux
+
 // Tip: Obtener un array de objetos, donde cada objeto sea un video
 // {min:5, seg: 59, tipo: 'Redux Video'}
 // Tip2: split
+
+function parsearDatos(str) {
+  const resultado = []
+  const splitado = str.split("</li>");
+
+  for (let index = 0; index < splitado.length - 1; index++) {
+    const desde = splitado[index].indexOf("\"");
+    const hasta = splitado[index].lastIndexOf("\"");
+    const horaCompleta = splitado[index].substring(desde + 1, hasta).split(":");
+    const min = horaCompleta[0];
+    const seg = horaCompleta[1];
+
+    const tipo = splitado[index].substring(splitado[index].lastIndexOf(">") + 1, splitado[index].length);
+    resultado.push({ min, seg, tipo})
+  }
+  return resultado;
+}
+//console.log(parsearDatos(str)[0])
+
+
+// Obtener el total de segundos de los videos de tipo Redux
+const videosRedux = parsearDatos(str).filter((video) => video.tipo === "Redux Video");
+
+const totalSegundos = videosRedux.reduce((total, video) => {
+  return total +  parseInt(video.seg);
+}, 0);
+
+console.log(totalSegundos)
+
+
+
