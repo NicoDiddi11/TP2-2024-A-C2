@@ -50,7 +50,7 @@ function parsearDatos(str) {
 const videosRedux = parsearDatos(str).filter((video) => video.tipo === "Redux Video");
 
 const totalSegundos = videosRedux.reduce((total, video) => {
-  return total +  parseInt(video.seg);
+  return total +  parseInt(video.seg) + parseInt(video.min) * 60
 }, 0);
 
 console.log(totalSegundos)
