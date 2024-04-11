@@ -6,13 +6,13 @@ let ultimoElemento = nombres[nombres.length - 1];
 
 // itear un array
 for (let i = 0; i < nombres.length; i++) {
-  //console.log(nombres[i]);
+  console.log(nombres[i]);
 }
 
 // no tengo control del indice
 // no puedo cambiar la dimensión array
 for (const nombre of nombres) {
-  //console.log(nombre);
+  console.log(nombre);
 }
 
 // itera propiedades: for in
@@ -32,9 +32,10 @@ nombres.push("Pablo");
 nombres.unshift("Juana");
 
 // sacar elemento del array
-//let ultimoNombre = nombres.pop();
+let ultimoNombre = nombres.pop();
+
 // sacar del principio
-//let primerElemento = nombres.shift();
+let primerElemento = nombres.shift();
 
 // buscar la posición
 let posicion = nombres.indexOf("Juana");
@@ -53,13 +54,13 @@ nombres.splice(posicion, 1);
 let nuevoNombres = nombres.slice();
 
 // realizar ordenamiento simple
-//console.log(nombres.sort());
+console.log(nombres.sort());
 
 // Generar un array a partir de un string
-// let stringNombres = "Juan;Pedro;Maria;Jose";
-// for (const s of stringNombres) {
-//   console.log(s);
-// }
+let stringNombres = "Juan;Pedro;Maria;Jose";
+for (const s of stringNombres) {
+   console.log(s);
+ }
 
 let arrayNombres = stringNombres.split(";");
 arrayNombres.push("Pepe");
